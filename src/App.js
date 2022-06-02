@@ -26,7 +26,8 @@ class App extends Component {
       color:"white"
     };
   return (
-   
+      <>
+      <div>hello world</div>
       <div style={{position:"fixed",top:"30%",left:"40%"}}>
       <Lottie 
 	      options={defaultOptions}
@@ -41,7 +42,7 @@ class App extends Component {
           pause/play
         </button>
       </div>
-    
+    </>
   );
   }
 }
