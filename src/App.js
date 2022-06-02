@@ -21,7 +21,9 @@ class App extends Component {
     };
     const buttonStyle = {
       display: "block",
-      margin: "10px auto"
+      margin: "10px auto",
+      backgroundColor:"black",
+      color:"white"
     };
   return (
    
