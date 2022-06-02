@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Lottie from 'react-lottie';
+import animationData from './Animation/first.json';
 
-function App() {
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      isPaused:false
+    }
+  }
+  
+  render(){
+    const defaultOptions = {
+      loop: true,
+      autoplay: true,
+      animationData: animationData,
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice"
+      }
+    };
+    const buttonStyle = {
+      display: "block",
+      margin: "10px auto"
+    };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+   
+      <div style={{position:"fixed",top:"30%",left:"40%"}}>
+      <Lottie 
+	      options={defaultOptions}
+        height={200}
+        width={200}
+        isPaused={ this.state.isPaused }
+      />
+      <button
+          style={buttonStyle}
+          onClick={() => this.setState({ isPaused: !this.state.isPaused })}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          pause/play
+        </button>
+      </div>
+    
   );
+  }
 }
-
-export default App;
+export default  App;
